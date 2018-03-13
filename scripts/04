@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#In /etc/crontab file:
+#0 0 * * * root  sh /root/init/scripts/04
+
+MD5SUM=`cat /root/crontabsum`
+NEWSUM=`md5sum /etc/crontab | cut -d " " -f 1`
+
+if [ "$MD5SUM" != "$NEWSUM" ]
+	then
+	md5sum /etc/crontab | cut -d " " -f 1 > /root/crontabsum
+	echo ">>>> CRONTABSUM CREATED."
+	mail -s "The file crontab was modified" root < /etc/crontab
+fi

@@ -1,0 +1,6 @@
+crontab permet de programmer des commandes pour une exécution régulière. On modifie la programmation avec crontab -e.
+
+Imaginons que je veuille exécuter une commande tous les jours à 15 h 47.
+
+crontab
+47 15 * * * touch /home/test/fichier.txt

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo $USER
+echo $UID
+awk -F ":" '{print $NF}' /etc/passwd
